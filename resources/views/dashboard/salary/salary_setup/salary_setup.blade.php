@@ -54,7 +54,6 @@
 
       @foreach ($salaries as $salary)
 
-
         <tr>
           <td></td>
           <td class="product-name">{{ $salary->relatonBetweenEmployee->fname.' '.$salary->relatonBetweenEmployee->fname }}</td>

@@ -8,7 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Activation' => $baseDir . '/app/Activation.php',
     'App\\BenifitSalary' => $baseDir . '/app/BenifitSalary.php',
-    'App\\Chairman' => $baseDir . '/app/Chairman.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Department' => $baseDir . '/app/Department.php',
     'App\\Designation' => $baseDir . '/app/Designation.php',
@@ -4108,6 +4107,7 @@ return array(
     'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Property' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Property.php',
     'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
     'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
+    'UsersTableSeeder' => $baseDir . '/database/seeds/UsersTableSeeder.php',
     'Webmozart\\Assert\\Assert' => $vendorDir . '/webmozart/assert/src/Assert.php',
     'Whoops\\Exception\\ErrorException' => $vendorDir . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
     'Whoops\\Exception\\Formatter' => $vendorDir . '/filp/whoops/src/Whoops/Exception/Formatter.php',

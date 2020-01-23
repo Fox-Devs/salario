@@ -128,13 +128,21 @@ class SalaryController extends Controller
           'benifit_add_deduct'    =>  $request->benifit_value_deduct[$key],
           'created_at'            =>Carbon::now(),
         ]);
-
-
-
       }
 
       Alert::toast('Benifit Deletes','danger');
       return back();
-
     }
+
+    // manage_salary
+
+    function manage_salary()
+    {
+      $employees = Employee::all();
+      $salary_benifits = SalaryBenifits::all();
+      $salaries = GrossSalary::all();
+      return view('dashboard.salary.manage_salary.manage_salary',compact('employees','salary_benifits','salaries'));
+    }
+
+    // END
 }

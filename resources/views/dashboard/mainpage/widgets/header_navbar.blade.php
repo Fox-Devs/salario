@@ -1,4 +1,4 @@
-{{-- {{ error_reporting(0) }} --}}
+
 <nav class="header-navbar navbar-expand-lg navbar navbar-with-menu floating-nav navbar-light navbar-shadow">
   <div class="navbar-wrapper">
     <div class="navbar-container content">
@@ -99,9 +99,12 @@
               </span><span class="user-status">
                 {{ Auth::user()->relationBetweenDesignation->name }}
               </span></div><span>
-                <img class="round" src="{{asset('uploads/employee')}}/{{ Auth::user()->relationBetweenEmployee->photo }}" alt="avatar" height="40" width="40">
+                <img class="round" src="{{ asset('uploads/employee') }}/{{ Auth::user()->relationBetweenEmployee->photo }}" alt="avatar" height="40" width="40">
               </span></a>
-            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="page-user-profile.html"><i data-feather="user"></i> Edit Profile</a><a class="dropdown-item" href="app-email.html"><i data-feather="inbox"></i>My Inbox</a><a class="dropdown-item" href="app-todo.html"><i class="feather icon-check-square"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="feather icon-message-square"></i> Chats</a>
+            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="page-user-profile.html"><i data-feather="user"></i> Edit Profile</a>
+              <a class="dropdown-item" href="app-email.html"><i data-feather="inbox"></i>My Inbox</a>
+              <a class="dropdown-item" href="app-todo.html"><i class="feather icon-check-square"></i> Task</a>
+              <a class="dropdown-item" href="app-chat.html"><i class="feather icon-message-square"></i> Chats</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"><i data-feather="log-out"></i>

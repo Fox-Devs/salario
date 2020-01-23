@@ -24,5 +24,4 @@ class GrossSalary extends Model
 
 
 
-
 }

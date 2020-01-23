@@ -36,7 +36,6 @@
 
   </head>
   <!-- END: Head-->
-  {{error_reporting(0)}}
 
   {{-- BEGIN: custom_css --}}
   @yield('custom_css')

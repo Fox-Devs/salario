@@ -77,7 +77,12 @@ Route::get('/app/v1/dashboard/salary/benifits/delete/{benifit_id}/{slug}','Salar
 Route::get('/app/v1/dashboard/salary/setup','SalaryController@salary_setup')->name('salary_setup'); //salary_setup
 // get_employee_basic_salary
 Route::post('/app/v1/dashboard/get/employee/basic/salary','SalaryController@get_employee_basic_salary')->name('get_employee_basic_salary'); //get_employee_basic_salary
+// get_employee_basic_salary
 Route::post('/app/v1/dashboard/postgb','SalaryController@postgb')->name('postgb'); //get_employee_basic_salary
+
+// manage_salary
+Route::get('/app/v1/dashboard/manage/salary','SalaryController@manage_salary')->name('manage_salary'); //salary_setup
+
 
 
 // END: SalaryController

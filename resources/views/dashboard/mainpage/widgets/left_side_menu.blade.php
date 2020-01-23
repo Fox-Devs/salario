@@ -49,7 +49,7 @@
           </li>
           <li class="{{ Route::currentRouteNamed('salary_setup') ? 'active' : '' }}"><a href="{{ route('salary_setup') }}"><i data-feather="tool" class="foo"></i><span class="menu-item" data-i18n="Salary Setup">Salary Setup</span></a>
           </li>
-          <li><a href="manage_employee_salary.html"><i data-feather="dollar-sign" class="foo"></i><span class="menu-item" data-i18n="Manage Salary">Manage Salary</span></a>
+          <li class="{{ Route::currentRouteNamed('manage_salary') ? 'active' : '' }}"><a href="{{ route('manage_salary') }}"><i data-feather="dollar-sign" class="foo"></i><span class="menu-item" data-i18n="Manage Salary">Manage Salary</span></a>
           </li>
         </ul>
       </li>
