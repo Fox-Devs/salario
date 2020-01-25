@@ -56,9 +56,11 @@
           <td></td>
           <td class="product-img"><img src="{{ asset('uploads/employee') }}/{{ $salary->relatonBetweenEmployee->photo }}" alt="Img placeholder">
           </td>
-          <td class="product-name">{{ $salary->relatonBetweenEmployee->fname.' '.$salary->relatonBetweenEmployee->fname }}</td>
+          <input type="hidden" id="emId" name="emId" value="{{$salary->relatonBetweenEmployee->id}}">
+          <td class="product-name">{{ $salary->relatonBetweenEmployee->fname.' '.$salary->relatonBetweenEmployee->lname }}</td>
           <td class="product-category">{{ $salary->relatonBetweenEmployee->relationBetweenDesignation->name }}</td>
-          <td class="product-category">৳{{ $salary->gross_salary }}</td>
+          <input type="hidden" value="{{ $salary->gross_salary }}">
+          <td class="product-category" id="sal">৳{{ $salary->gross_salary }}</td>
           <td class="product-category">{{ $salary->relatonBetweenEmployee->relationBetweenStatus->name }}</td>
 
           <td class="product-price">{{ Carbon\Carbon::now()->format('M') }} {{ Carbon\Carbon::now()->year }}</td>
@@ -85,21 +87,23 @@
         </div>
       </div>
       <div class="data-items pb-3">
-        <form action="#" method="post">
-
+        <form method="post" action="{{route('paySalaryNow')}}">
+            @csrf
           <div class="data-fields px-2 mt-3">
             <div class="row">
-
+                <input type="hidden" name="employeeId" id="employeeId">
               <div class="col-md-12 col-12">
                   <div class="form-label-group">
-                      <input type="text" id="first-name-column" class="form-control" placeholder="EMPLOYEE NAME" name="fname" disabled>
+                      <input type="hidden" name="nameToPayinput" id="nameToPayinput">
+                      <input type="text" id="nameToPay" class="form-control" placeholder="EMPLOYEE NAME" name="nameToPay" disabled>
                       <label for="first-name-column">EMPLOYEE NAME</label>
                   </div>
               </div>
 
               <div class="col-md-12 col-12">
                   <div class="form-label-group">
-                      <input type="text" id="first-name-column" class="form-control" placeholder="TOTAL SALARY" name="fname" disabled>
+                      <input type="hidden" name="moneyToPayinput" id="moneyToPayinput">
+                      <input type="text" id="moneyToPay" class="form-control" placeholder="TOTAL SALARY" name="moneyToPay" disabled>
                       <label for="first-name-column">TOTAL SALARY</label>
                   </div>
               </div>
@@ -107,10 +111,10 @@
 
               <div class="col-md-12 col-12">
                   <div class="form-group" data-select2-id="142">
-                      <select class="select2 form-control select2-hidden-accessible" name="blood_id" data-select2-id="4" tabindex="-1" aria-hidden="true">
+                      <select class="select2 form-control select2-hidden-accessible" name="payMethod" data-select2-id="4" tabindex="-1" aria-hidden="true">
                           <optgroup label="PAYMENT METHOD" data-select2-id="142">
-                              <option value="romboid" data-select2-id="6">CASH PAYMENT</option>
-                              <option value="romboid" data-select2-id="8">BANK PAYMENT</option>
+                              <option value="0" data-select2-id="6">CASH PAYMENT</option>
+                              <option value="1" data-select2-id="8">BANK PAYMENT</option>
                           </optgroup>
                       </select>
                   </div>
@@ -195,7 +199,20 @@
        }
    });
 </script>
+<script>
+    $('.action-edit').click(function () {
+        let htmlElement = this.parentElement.parentElement;
+        let id = htmlElement.childNodes[5].value;
+        let name = htmlElement.childNodes[7].textContent;
+        let money = htmlElement.childNodes[11].value;
+        document.getElementById('employeeId').value = id;
+        document.getElementById('nameToPay').value = name;
+        document.getElementById('moneyToPay').value = money;
+        document.getElementById('nameToPayinput').value = name;
+        document.getElementById('moneyToPayinput').value = money;
 
+    });
+</script>
 
 
 

@@ -179,6 +179,13 @@ Route::post('/app/v1/dashboard/gender/update/{gender_id}','StatusController@gend
 //
 // gender_id_multi_delete
 Route::get('/app/v1/dashboard/gender/multi/delete','StatusController@gender_id_multi_delete')->name('gender_id_multi_delete'); //gender_id_multi_delete
+//
+// Payment
+Route::post('/app/v1/dashboard/payment', 'SalaryController@paymentNow')->name('paySalaryNow'); //gender_id_multi_delete
+//
+// Stripe payments routes
+Route::get('stripe', 'StripePaymentController@stripe');
+Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
 
 
 // END: Gender
