@@ -11,6 +11,7 @@ use App\SalaryBenifits;
 use App\Employee;
 use App\GrossSalary;
 use App\BenifitSalary;
+use App\Payment;
 
 class SalaryController extends Controller
 {
@@ -142,6 +143,32 @@ class SalaryController extends Controller
       $salary_benifits = SalaryBenifits::all();
       $salaries = GrossSalary::all();
       return view('dashboard.salary.manage_salary.manage_salary',compact('employees','salary_benifits','salaries'));
+    }
+
+    // Payment section
+    function paymentNow(Request $request)
+    {
+        // print_r($request->all());
+        if ($request->payMethod == 0) {
+
+            Payment::insert([
+                'employeeId' => $request->employeeId,
+                'moneyToPayinput' => $request->moneyToPayinput,
+                'payMethod' => $request->payMethod,
+                'payStatus' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+
+            Alert::toast('Employee Payment Done !👍', 'success');
+            return back();
+        } else {
+            $employeeId = $request->employeeId;
+            $moneyToPayinput = $request->moneyToPayinput;
+            $payMethod = $request->payMethod;
+            return view('stripe',compact('employeeId','moneyToPayinput','payMethod'));
+        }
+
     }
 
     // END
